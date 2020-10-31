@@ -1,0 +1,30 @@
+service: test-api
+
+provider:
+  memorySize: 128
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-2
+  versionFunctions: false
+
+package:
+  exclude:
+    - "*"
+    - "**/node_modules/aws-sdk/**"
+    - "!package.json"
+
+plugins:
+  - serverless-jetpack
+
+functions:
+  graphql:
+    handler: src/server.handler
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+      - http:
+          path: graphql
+          method: get
+          cors: true
