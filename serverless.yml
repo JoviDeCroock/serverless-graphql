@@ -2,10 +2,13 @@ service: test-api
 
 provider:
   memorySize: 128
+  stage: dev
   name: aws
   runtime: nodejs12.x
   region: eu-west-2
   versionFunctions: false
+  apiGateway:
+    shouldStartNameWithService: true
 
 package:
   exclude:
