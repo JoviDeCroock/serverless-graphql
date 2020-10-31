@@ -20,6 +20,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: yarn
+      - name: Compile Typescript
+        run: yarn build
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

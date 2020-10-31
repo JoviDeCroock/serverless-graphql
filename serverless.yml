@@ -17,11 +17,12 @@ package:
     - "!package.json"
 
 plugins:
+  - serverless-offline
   - serverless-jetpack
 
 functions:
   graphql:
-    handler: src/server.handler
+    handler: dist/server.handler
     events:
       - http:
           path: graphql
